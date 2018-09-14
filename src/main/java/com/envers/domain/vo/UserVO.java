@@ -70,9 +70,6 @@ public class UserVO {
         int result = 17;
         result = 31 * result + this.id.hashCode();
         result = 31 * result + this.name.hashCode();
-        for(UserOrgVO org: organisations) {
-            result = 31 * result + org.hashCode();
-        }
         return result;
     }
 }

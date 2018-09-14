@@ -81,7 +81,6 @@ public class UserOrgVO {
         int result = 17;
         result = 31 * result + this.id.hashCode();
         result = 31 * result + this.userid.hashCode();
-        result = 31 * result + this.organisation.hashCode();
         return result;
     }
 }
