@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "984255c6-4742-47f1-9fa4-7a399453c068",
+		"name": "envers-audit-query-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":1,\n\t\"name\":\"User 1\",\n\t\"organisations\": [\n\t\t{\n\t\t\t\"id\":1,\n\t\t\t\"userid\": 1,\n\t\t\t\"organisation\": {\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"name\": \"Organisation 1\"\n\t\t\t}\n\t\t}\n\t]\n}"
+						},
+						"url": "http://localhost:8080/users/"
+					},
+					"response": []
+				},
+				{
+					"name": "Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:8080/users/"
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:8080/users/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":1,\n\t\"name\":\"User 1\",\n\t\"organisations\": [\n\t\t{\n\t\t\t\"id\":1,\n\t\t\t\"userid\": 1,\n\t\t\t\"organisation\": {\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"name\": \"Organisation 1\"\n\t\t\t}\n\t\t}\n\t]\n}"
+						},
+						"url": "http://localhost:8080/users/"
+					},
+					"response": []
+				},
+				{
+					"name": "User Revisions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:8080/users/1/revisions"
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:8080/users/1"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ad379d0e-de98-48c3-9c63-6f58a9daa005",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7767af1d-57d5-4139-8d41-d57bf9fd973f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Organisation",
+			"item": [
+				{
+					"name": "Add Organisation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 1,\n\t\"name\": \"organisation 1\"\n}"
+						},
+						"url": "http://localhost:8080/organisations/"
+					},
+					"response": []
+				},
+				{
+					"name": "Organisations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:8080/organisations/"
+					},
+					"response": []
+				},
+				{
+					"name": "Organisation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:8080/organisations/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Organisation",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 1,\n\t\"name\": \"Organisation 1\"\n}"
+						},
+						"url": "http://localhost:8080/organisations/"
+					},
+					"response": []
+				},
+				{
+					"name": "Organisation Revisions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:8080/organisations/1/revisions"
+					},
+					"response": []
+				},
+				{
+					"name": "Organisation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:8080/organisations/1"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ad379d0e-de98-48c3-9c63-6f58a9daa005",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7767af1d-57d5-4139-8d41-d57bf9fd973f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "34e063ce-4442-4db3-a0cc-339a769e2ee4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6ac575c3-e885-498d-9ff9-f4d6ebaebbed",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
