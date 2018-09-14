@@ -34,6 +34,6 @@ Rest endpoints
 ---
 I used the postman as a client to test the endpoints, you can import the collection, the file is in:
 ```
-/resources/endpoints/collection[postmanv2.1].json
+/resources/endpoints/envers-audit-query-v1.postman_collection.json
 ```
 Or if you prefer, you can see the Controllers inside of ```com.envers.web``` 
