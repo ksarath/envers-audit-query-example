@@ -1,5 +1,6 @@
 package com.envers.domain.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
@@ -11,8 +12,10 @@ public class UserOrgVO {
     @Column(name = "ID")
     private Long id;
 
-    @Column (name = "USER_ID")
-    private Long userid;
+    @ManyToOne
+    @JoinColumn (name = "USER_ID", nullable = false)
+    @JsonIgnore
+    private UserVO user;
 
     @ManyToOne
     @JoinColumn (name = "ORGANISATION_ID", nullable = false)
@@ -24,9 +27,9 @@ public class UserOrgVO {
     public UserOrgVO() {
     }
 
-    public UserOrgVO(Long id, Long userid, OrganisationVO organisation, boolean preferred) {
+    public UserOrgVO(Long id, UserVO user, OrganisationVO organisation, boolean preferred) {
         this.id = id;
-        this.userid = userid;
+        this.user = user;
         this.organisation = organisation;
         this.preferred = preferred;
     }
@@ -39,12 +42,12 @@ public class UserOrgVO {
         this.id = id;
     }
 
-    public Long getUserid() {
-        return userid;
+    public UserVO getUser() {
+        return user;
     }
 
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setUser(UserVO user) {
+        this.user = user;
     }
 
     public OrganisationVO getOrganisation() {
@@ -69,7 +72,7 @@ public class UserOrgVO {
 
         UserOrgVO that = (UserOrgVO) obj;
         if(that.id.equals(this.id) &&
-                that.userid.equals(this.userid) &&
+                that.user.getId().equals(this.user.getId()) &&
                 that.preferred == this.preferred &&
                 that.organisation.equals(this.organisation)
         ) return true;
@@ -80,7 +83,7 @@ public class UserOrgVO {
     public int hashCode() {
         int result = 17;
         result = 31 * result + this.id.hashCode();
-        result = 31 * result + this.userid.hashCode();
+        result = 31 * result + this.user.getId().hashCode();
         return result;
     }
 }

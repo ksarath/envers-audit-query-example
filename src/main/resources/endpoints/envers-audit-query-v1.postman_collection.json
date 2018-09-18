@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "984255c6-4742-47f1-9fa4-7a399453c068",
+		"_postman_id": "8323b8b4-4742-47f1-9fa4-7a399453c068",
 		"name": "envers-audit-query-v1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -20,7 +20,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1,\n\t\"name\":\"User 1\",\n\t\"organisations\": [\n\t\t{\n\t\t\t\"id\":1,\n\t\t\t\"userid\": 1,\n\t\t\t\"organisation\": {\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"name\": \"Organisation 1\"\n\t\t\t}\n\t\t}\n\t]\n}"
+							"raw": "{\n\t\"id\":1,\n\t\"name\":\"User 1\",\n\t\"organisations\": [\n\t\t{\n\t\t\t\n\t\t\t\"id\":1,\n\t\t\t\"organisation\": {\n\t\t\t\t\"id\": 1,\n\t\t\t\t\"name\": \"Organisation 1\"\n\t\t\t}\n\t\t}\n\t]\n}"
 						},
 						"url": "http://localhost:8080/users/"
 					},

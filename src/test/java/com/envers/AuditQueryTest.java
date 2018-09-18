@@ -43,12 +43,10 @@ public class AuditQueryTest {
     @Test
     @Transactional
     public void auditQueryTest() {
-        OrganisationVO org = new OrganisationVO(1L, "org-1");
-
         List<UserOrgVO> userOrgs = new ArrayList<>();
-        userOrgs.add(new UserOrgVO(1L, 1L, org, false));
-
+        OrganisationVO org = new OrganisationVO(1L, "org-1");
         UserVO user = new UserVO(1L, "user-1", userOrgs);
+        userOrgs.add(new UserOrgVO(1L, user, org, false));
 
         orgRepo.save(org);
         userRepo.save(user);
@@ -67,7 +65,7 @@ public class AuditQueryTest {
 
             for(UserOrgVO userOrgRev : userRev.getOrganisations()) {
                 assertEquals(userOrgRev.getId(), new Long(1L));
-                assertEquals(userOrgRev.getUserid(), new Long(1L));
+                assertEquals(userOrgRev.getUser().getId(), new Long(1L));
 
                 OrganisationVO orgRev = userOrgRev.getOrganisation();
                 assertEquals(orgRev.getId(), new Long(1L));

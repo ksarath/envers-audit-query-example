@@ -15,7 +15,7 @@ public class UserVO {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany (fetch = FetchType.EAGER, mappedBy = "userid", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany (fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @Audited
     private List<UserOrgVO> organisations;
 

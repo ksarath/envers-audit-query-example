@@ -73,19 +73,19 @@ public class UserServiceImpl implements UserService {
         List<UserVO> users = new ArrayList<>();
         for(Object rev : revisions) {
             UserVO userRev = (UserVO) rev;
-            System.out.println("user id: " + userRev.getId());
-            System.out.println("user name: " + userRev.getName());
-
+            List<UserOrgVO> userOrgs = new ArrayList<>();
             for(UserOrgVO userOrgRev : userRev.getOrganisations()) {
-                System.out.println("user org id: " + userOrgRev.getId());
-                System.out.println("user org user id: " + userOrgRev.getUserid());
-
                 OrganisationVO orgRev = userOrgRev.getOrganisation();
-                System.out.println("user organisation id: " + orgRev.getId());
-                System.out.println("user organisation name: " + orgRev.getName());
+                OrganisationVO orgVo = new OrganisationVO(orgRev.getId(), orgRev.getName());
+                UserOrgVO userOrgVo = new UserOrgVO(userOrgRev.getId(), null, orgVo, userOrgRev.isPreferred());
+                userOrgs.add(userOrgVo);
             }
 
-            users.add(userRev);
+            UserVO userVo = new UserVO(userRev.getId(), userRev.getName(), userOrgs);
+//            for(UserOrgVO userOrgVo : userVo.getOrganisations()) {
+//                userOrgVo.setUser(userVo);
+//            }
+            users.add(userVo);
         }
 
         return users;

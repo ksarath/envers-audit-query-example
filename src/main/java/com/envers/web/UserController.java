@@ -1,5 +1,6 @@
 package com.envers.web;
 
+import com.envers.domain.vo.UserOrgVO;
 import com.envers.domain.vo.UserVO;
 import com.envers.service.UserService;
 import org.apache.commons.lang.Validate;
@@ -38,6 +39,9 @@ public class UserController {
     @PostMapping
     public UserVO saveUser(@RequestBody UserVO userVO) {
         Validate.notNull(userVO, "The user cannot be null");
+        for(UserOrgVO userOrg: userVO.getOrganisations()) {
+            userOrg.setUser(userVO);
+        }
         logger.info(String.format("Saving user: %s", userVO.toString()));
         return this.userService.save(userVO);
     }
